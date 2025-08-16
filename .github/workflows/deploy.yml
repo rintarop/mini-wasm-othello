@@ -6,12 +6,26 @@ on:
   pull_request:
     branches: [ main ]
 
+# GitHub Pagesのためのpermissions
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時実行の制御
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     
     steps:
     - name: Checkout
@@ -43,14 +57,3 @@ jobs:
       if: github.ref == 'refs/heads/main'
       id: deployment
       uses: actions/deploy-pages@v4
-
-# GitHub Pagesのためのpermissions
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# 同時実行の制御
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
