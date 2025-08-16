@@ -3,10 +3,6 @@
 **/*.rs.bk
 Cargo.lock
 
-# WebAssembly
-/pkg/
-*.wasm
-
 # Node
 node_modules/
 npm-debug.log*

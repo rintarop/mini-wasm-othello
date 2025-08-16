@@ -1,0 +1,15 @@
+{
+  "name": "mini-wasm-othello",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "mini_wasm_othello_bg.wasm",
+    "mini_wasm_othello.js",
+    "mini_wasm_othello.d.ts"
+  ],
+  "main": "mini_wasm_othello.js",
+  "types": "mini_wasm_othello.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
