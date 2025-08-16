@@ -24,6 +24,16 @@
         <div id="game-controls">
             <button id="reset-game">新しいゲーム</button>
             <button id="toggle-turn">先攻・後攻を変更</button>
+            
+            <div id="ai-difficulty-section">
+                <label for="ai-difficulty">AI難易度:</label>
+                <select id="ai-difficulty">
+                    <option value="1">初級</option>
+                    <option value="2" selected>中級</option>
+                    <option value="3">上級</option>
+                    <option value="4">エキスパート</option>
+                </select>
+            </div>
         </div>
         
         <canvas id="game-canvas"></canvas>

@@ -111,6 +111,38 @@ button:disabled {
     cursor: not-allowed;
 }
 
+#ai-difficulty-section {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#ai-difficulty-section label {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+#ai-difficulty {
+    padding: 6px 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+#ai-difficulty:hover {
+    border-color: #45a049;
+}
+
+#ai-difficulty:focus {
+    outline: none;
+    border-color: #45a049;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
 #instructions {
     text-align: center;
     color: #666;

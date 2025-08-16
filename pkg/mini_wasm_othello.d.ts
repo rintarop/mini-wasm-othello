@@ -1,16 +1,25 @@
 /* tslint:disable */
 /* eslint-disable */
+export enum AiDifficulty {
+  Easy = 1,
+  Medium = 2,
+  Hard = 3,
+  Expert = 4,
+}
 export class OthelloGame {
   free(): void;
   constructor(canvas: HTMLCanvasElement);
   draw_board(): void;
   handle_click(event: MouseEvent): void;
+  set_ai_difficulty(difficulty: AiDifficulty): void;
+  get_ai_difficulty_description(): string;
   get_score(): Int32Array;
   get_valid_moves_count(): number;
   get_ai_move(): Int32Array;
   make_ai_move(): boolean;
   is_game_over(): boolean;
   readonly current_player: number;
+  readonly ai_difficulty: AiDifficulty;
 }
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
@@ -22,6 +31,9 @@ export interface InitOutput {
   readonly othellogame_draw_board: (a: number) => [number, number];
   readonly othellogame_handle_click: (a: number, b: any) => [number, number];
   readonly othellogame_current_player: (a: number) => number;
+  readonly othellogame_set_ai_difficulty: (a: number, b: number) => void;
+  readonly othellogame_ai_difficulty: (a: number) => number;
+  readonly othellogame_get_ai_difficulty_description: (a: number) => [number, number];
   readonly othellogame_get_score: (a: number) => [number, number];
   readonly othellogame_get_valid_moves_count: (a: number) => number;
   readonly othellogame_get_ai_move: (a: number) => [number, number];

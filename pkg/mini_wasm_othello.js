@@ -121,6 +121,15 @@ function getArrayI32FromWasm0(ptr, len) {
     ptr = ptr >>> 0;
     return getInt32ArrayMemory0().subarray(ptr / 4, ptr / 4 + len);
 }
+/**
+ * @enum {1 | 2 | 3 | 4}
+ */
+export const AiDifficulty = Object.freeze({
+    Easy: 1, "1": "Easy",
+    Medium: 2, "2": "Medium",
+    Hard: 3, "3": "Hard",
+    Expert: 4, "4": "Expert",
+});
 
 const OthelloGameFinalization = (typeof FinalizationRegistry === 'undefined')
     ? { register: () => {}, unregister: () => {} }
@@ -172,6 +181,34 @@ export class OthelloGame {
     get current_player() {
         const ret = wasm.othellogame_current_player(this.__wbg_ptr);
         return ret;
+    }
+    /**
+     * @param {AiDifficulty} difficulty
+     */
+    set_ai_difficulty(difficulty) {
+        wasm.othellogame_set_ai_difficulty(this.__wbg_ptr, difficulty);
+    }
+    /**
+     * @returns {AiDifficulty}
+     */
+    get ai_difficulty() {
+        const ret = wasm.othellogame_ai_difficulty(this.__wbg_ptr);
+        return ret;
+    }
+    /**
+     * @returns {string}
+     */
+    get_ai_difficulty_description() {
+        let deferred1_0;
+        let deferred1_1;
+        try {
+            const ret = wasm.othellogame_get_ai_difficulty_description(this.__wbg_ptr);
+            deferred1_0 = ret[0];
+            deferred1_1 = ret[1];
+            return getStringFromWasm0(ret[0], ret[1]);
+        } finally {
+            wasm.__wbindgen_free(deferred1_0, deferred1_1, 1);
+        }
     }
     /**
      * @returns {Int32Array}

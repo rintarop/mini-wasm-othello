@@ -41,6 +41,12 @@ async function run() {
     function startNewGame() {
         game = new OthelloGame(canvas);
         gameInProgress = true;
+        
+        // AI難易度を設定
+        const difficultySelect = document.getElementById('ai-difficulty');
+        const difficulty = parseInt(difficultySelect.value);
+        game.set_ai_difficulty(difficulty);
+        
         updateGameInfo(game);
         
         // プレイヤーが後攻（白）の場合、AIが最初に手を打つ
@@ -98,6 +104,15 @@ async function run() {
         playerColor = playerColor === 1 ? 2 : 1;
         updateGameModeText();
         startNewGame();
+    });
+    
+    // AI難易度変更
+    document.getElementById('ai-difficulty').addEventListener('change', (event) => {
+        const difficulty = parseInt(event.target.value);
+        if (game) {
+            game.set_ai_difficulty(difficulty);
+            console.log('AI難易度を変更:', game.get_ai_difficulty_description());
+        }
     });
     
     // ゲーム終了チェック
