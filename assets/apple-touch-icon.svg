@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- 背景の緑色（オセロボード） -->
+  <rect width="180" height="180" fill="#228B22" rx="12"/>
+  
+  <!-- グリッド線 -->
+  <defs>
+    <pattern id="grid" width="22.5" height="22.5" patternUnits="userSpaceOnUse">
+      <path d="M 22.5 0 L 0 0 0 22.5" fill="none" stroke="#1a5f1a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="180" height="180" fill="url(#grid)"/>
+  
+  <!-- 石を配置 -->
+  <!-- 黒い石 -->
+  <circle cx="45" cy="45" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  <circle cx="90" cy="90" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  <circle cx="135" cy="135" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  <circle cx="67.5" cy="112.5" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  
+  <!-- 白い石 -->
+  <circle cx="135" cy="45" r="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <circle cx="90" cy="45" r="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <circle cx="45" cy="135" r="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <circle cx="112.5" cy="67.5" r="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  
+  <!-- 中央のロゴっぽい配置 -->
+  <circle cx="67.5" cy="67.5" r="8" fill="#000" stroke="#333" stroke-width="1"/>
+  <circle cx="112.5" cy="112.5" r="8" fill="#fff" stroke="#ccc" stroke-width="1"/>
+</svg>
