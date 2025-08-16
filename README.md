@@ -2,6 +2,10 @@
 
 A simple Othello (Reversi) game built with Rust and WebAssembly.
 
+## 🎮 Play Online
+
+**[Play the game here: https://rintarop.github.io/mini-wasm-othello/](https://rintarop.github.io/mini-wasm-othello/)**
+
 ## Overview
 
 This project demonstrates the power of WebAssembly by implementing an Othello game where the core game logic is written in Rust and compiled to WebAssembly for browser execution. The game features an AI opponent and a responsive design that works on both desktop and mobile devices.
@@ -10,7 +14,12 @@ This project demonstrates the power of WebAssembly by implementing an Othello ga
 
 - Game logic implemented in Rust for performance and safety
 - WebAssembly integration for seamless browser execution
-- AI opponent with strategic gameplay
+- **Advanced AI opponent with 4 difficulty levels**:
+  - **Easy**: Greedy algorithm (fast, beginner-friendly)
+  - **Medium**: Minimax algorithm with 3-move lookahead
+  - **Hard**: Alpha-beta pruning with 5-move lookahead
+  - **Expert**: Alpha-beta pruning with 7-move lookahead + advanced evaluation
+- **Dynamic AI difficulty selection** during gameplay
 - Responsive design optimized for mobile devices
 - Clean, modern UI with HTML5 Canvas rendering
 - Player vs AI gameplay with switchable turn order
@@ -35,12 +44,12 @@ Make sure you have the following tools installed:
 
 2. Build the WebAssembly module:
    ```bash
-   wasm-pack build --target web --out-dir pkg
+   npm run build
    ```
 
 3. Start the development server:
    ```bash
-   python3 -m http.server 8000
+   npm run serve
    ```
 
 4. Open your browser and navigate to `http://localhost:8000`
@@ -65,6 +74,7 @@ If you're using VS Code, you can use the predefined tasks:
 
 - **新しいゲーム (New Game)**: Start a fresh game
 - **先攻・後攻を変更 (Switch Turn Order)**: Toggle between playing as black (first) or white (second)
+- **AI難易度 (AI Difficulty)**: Select from 4 AI difficulty levels (Easy, Medium, Hard, Expert)
 
 ## Technology Stack
 
@@ -72,6 +82,12 @@ If you're using VS Code, you can use the predefined tasks:
 - **Rust** - Game logic implementation with memory safety and performance
 - **WebAssembly (WASM)** - Compiling Rust to run in the browser
 - **wasm-bindgen** - Rust and WebAssembly integration with JavaScript
+
+### AI Algorithms
+- **Greedy Algorithm** - Fast, position-based evaluation
+- **Minimax Algorithm** - Game theory optimal play with lookahead
+- **Alpha-Beta Pruning** - Optimized minimax with branch cutting
+- **Advanced Evaluation Function** - Multi-factor board position evaluation
 
 ### Frontend
 - **HTML5 Canvas** - Game board rendering and user interaction
@@ -100,6 +116,11 @@ To build the project for production deployment:
 mini-wasm-othello/
 ├── src/
 │   └── lib.rs              # Rust game logic and WebAssembly bindings
+├── assets/                 # Static assets
+│   ├── favicon.svg         # Main favicon
+│   ├── favicon-16x16.svg   # Small favicon
+│   ├── favicon-32x32.svg   # Standard favicon
+│   └── apple-touch-icon.svg # iOS home screen icon
 ├── pkg/                    # Generated WebAssembly files
 ├── index.html             # Main HTML file
 ├── styles.css             # CSS styles and responsive design
