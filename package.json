@@ -1,0 +1,13 @@
+{
+  "name": "mini-wasm-othello",
+  "version": "0.1.0",
+  "description": "A simple Othello game built with Rust and WebAssembly",
+  "scripts": {
+    "build": "wasm-pack build --target web --out-dir pkg",
+    "serve": "python3 -m http.server 8000",
+    "dev": "npm run build && npm run serve"
+  },
+  "devDependencies": {
+    "wasm-pack": "^0.12.1"
+  }
+}
